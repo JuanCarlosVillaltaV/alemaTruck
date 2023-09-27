@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+			<div class="card-body">
+			
+				<form th:action="@{/views/vehiculos/save}"  th:object="${vehiculos}" 
+				method="post" enctype="multipart/form-data">
+				<div class="form-group row">
+				<input type="hidden" th:field="*{idvehiculo}">
+				 
+						<label class="col-md-2" for="marca">Marca:</label> 
+						<input type="text" th:field="*{marca}" class="form-control form-control-sm col-md-2" id="marca"
+							placeholder="Marca del vehiculo"> <small></small>
+					</div>
+					
+
+					 <div class="form-group row">
+						<label class="col-md-2" for="modelo">Modelo:</label> 
+						<input	type="text" th:field="*{modelo}"  class="form-control form-control-sm col-md-2" id="modelo"
+							placeholder="Modelo del vehiculo"> <small></small>
+					</div> 
+					
+					<div class="form-group row">
+					
+					<label class="col-md-2" for="fechaingreso">Fecha de
+							Ingreso del vehiculo</label> <input type="date" th:field="*{fechaingreso}"
+							class="form-control form-control-sm col-md-2" name="fechaingreso"
+							id="fechaingreso">
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="precio">Precio:</label> <input
+							type="text" th:field="*{precio}"  class="form-control form-control-sm col-md-2" id="precio"
+							placeholder="Precio del vehiculo"> <small></small>
+					</div> 
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="cilindrada">Cilindrada:</label> <input
+							type="text" th:field="*{cilindrada}"  class="form-control form-control-sm col-md-2"
+							id="cilindrada" placeholder="Cilindrada del vehiculo"> <small></small>
+					</div> 
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="potenciahp">Potencia hp:</label> <input
+							type="text" th:field="*{potenciahp}"    class="form-control form-control-sm col-md-2"
+							id="potenciahp" placeholder="Potenciahp del vehiculo"> <small></small>
+					</div> 
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="torque">Torque:</label> <input
+							type="text" th:field="*{torque}"  class="form-control form-control-sm col-md-2" id="torque"
+							placeholder="Torque del vehiculo"> <small></small>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="pesobruto">Pesobruto:</label> <input
+							type="text" th:field="*{pesobruto}" class="form-control form-control-sm col-md-2" id="pesobruto"
+							placeholder="Pesobruto del vehiculo"> <small></small>
+					</div> 
+					
+					 <div class="form-group row">
+						<label class="col-md-2" for="imagen">Foto:</label>
+						 <input	type="file" name="file" class="form-control form-control-sm col-md-3" id="imagen"> 
+							
+					</div>
+					
+					 <div class="form-group row">
+						<label class="col-md-2" for="estadoregistro">Estado:</label> <input
+							type="text" th:field="*{estadoregistro}" class="form-control form-control-sm col-md-2"
+							id="estadoregistro" placeholder="Estado"> <small></small>
+					</div>
+					
+					<div class="form-group row">
+				<label class="col-md-2" for="nombretipo">Tipo vehículo:</label> 
+				<select th:field="*{tipovehiculos}"  class="form-control form-control-sm col-md-2" id="nombretipo">
+				<option th:each="tipovehiculos:${tipovehiculos}"
+				th:value="${tipovehiculos.idtipovehiculo}"
+				th:text="${tipovehiculos.nombretipo}"
+				>
+				</select>
+				 
+			    
+					
+			</div>
+			
+					
+
+				
+
+					<div class="card-footer bg-dark">
+						<input type="submit" class="btn btn-outline-primary btn-sm"
+							value="Guardar">
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+

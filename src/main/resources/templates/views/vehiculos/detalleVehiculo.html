@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white text-center text-uppercase" th:text="${titulo}"></div>
+			<div class="card-body">
+			
+				<img class="img-thumbnail rounded float-left"
+				    th:src="@{'/images/'+ ${vehiculos.imagen}}"
+				    th:alt="${vehiculos.imagen}"
+				    style="max-width: 100%;">
+				<ul class="list-group">
+				<li class="list-group-item" th:text="'MARCA : '+${vehiculos.marca}"></li>
+				<li class="list-group-item" th:text="'MODELO : '+${vehiculos.modelo}"></li>
+			    <li class="list-group-item" th:text="'FECHA : '+${vehiculos.fechaingreso}"></li>
+				<li class="list-group-item" th:text="'PRECIO: '+${vehiculos.precio}"></li>
+				<li class="list-group-item" th:text="'CILINDRADA: '+${vehiculos.cilindrada}"></li>
+				<li class="list-group-item" th:text="'POTENCIA HP: '+${vehiculos.potenciahp}"></li>
+				<li class="list-group-item" th:text="'TORQUE: '+${vehiculos.torque}"></li>
+				<li class="list-group-item" th:text="'PESO BRUTO: '+${vehiculos.pesobruto}"></li>
+				<li class="list-group-item" th:text="'ESTADO: '+${vehiculos.estadoregistro}"></li>
+				
+				
+				
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

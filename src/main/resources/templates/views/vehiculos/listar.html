@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+	
+	<a class="btn btn-outline-primary btn-sm" th:href="@{/views/vehiculos/create}"
+	th:text="'Nuevo Vehiculo'" title="Crear Nuevo Registro">
+	</a>
+
+		<h1>MULTIMARCA</h1>
+		<h1>Listado de Vehículos</h1>
+		<!-- <h1>Representante oficial de</h1>
+		<h1>㉦ Mercedes-Benz</h1>
+		<h1>para Colombia</h1> -->
+		
+	</div>
+	<div class="container">
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				  
+					<th scope="col">Id</th>
+					<th scope="col">Marca</th>
+					<th scope="col">Modelo</th>
+					<th scope="col">Año</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Clindrada</th>
+					<th scope="col">Potencia HP</th>
+					<th scope="col">Torque</th>
+					<th scope="col">Peso bruto</th>
+					<th scope="col">Foto</th>
+					<th scope="col">Tipo Vehiculo</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Detalle</th>
+					<th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="veh:${vehiculos}">
+				<!-- 	<th scope="row" >
+					<a class="btn btn-outline-primary btn-sm"
+					th:href="@{/views/vehiculos/detalle/}+${veh.idvehiculo}"
+					th:text="${veh.idvehiculo}"></a>
+					</th> -->
+					 <th scope="row" th:text="${veh.idvehiculo}"></th>
+					
+					<td th:text="${veh.marca}"></td>
+					<td th:text="${veh.modelo}"></td>
+					<td th:text="${veh.fechaingreso}"></td>
+					<td th:text="${veh.precio}"></td>
+					<td th:text="${veh.cilindrada}"></td>
+					<td th:text="${veh.potenciahp}"></td>
+					<td th:text="${veh.torque}"></td>
+					<td th:text="${veh.pesobruto}"></td>
+					<td th:text="${veh.imagen}"></td>
+					<td th:text="${veh.tipovehiculos.nombretipo}"></td>
+					<td th:text="${veh.estadoregistro}"></td>
+					
+					<!-- 	<th scope="row" >
+					<a class="btn btn-outline-primary btn-sm"
+					th:href="@{/views/vehiculos/detalle/}+${veh.idvehiculo}"
+					th:text="${veh.idvehiculo}"></a>
+					</th> -->
+					
+					<td>
+					<a class="btn btn-outline-primary btn-sm"
+						th:href="@{/views/vehiculos/detalle/}+${veh.idvehiculo}"
+						 th:text="'Detalle'" title="Detalle"
+						 onclick="return confirm('Ver detalle del vehículo');"> </a>
+					</td>
+					
+					<td>
+					<a class="btn btn-outline-success  btn-sm"
+						th:href="@{/views/vehiculos/edit/} + ${veh.idvehiculo}"
+						th:text="'Editar'" title="Editar Registro"
+						onclick="return confirm('Esta editar el registro');"> </a>
+					</td>
+					
+					<td>
+					<a class="btn btn-outline-danger btn-sm"
+						th:href="@{/views/vehiculos/delete/} + ${veh.idvehiculo}"
+						th:text="'Eliminar'" title="Eliminar Registro"
+						onclick="return confirm('Esta seguro de eliminar el registro?');">
+					</a>
+					</td>
+					
+					
+					
+					<!-- 	BOTONES -->
+				</tr>
+				
+			</tbody>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
